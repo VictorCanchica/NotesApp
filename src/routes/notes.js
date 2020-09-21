@@ -1,14 +1,16 @@
 const express = require('express')
 const router = express.Router();
 const Note = require('../models/Note');
-const {isAuthenticated}=require('../helpers/auth');
+const {
+    isAuthenticated
+} = require('../helpers/auth');
 
 //CREAR---------------------------------------------------------
 router.get('/notes/add', isAuthenticated, (req, res) => {
     res.render('notes/add');
 })
 
-router.post('/notes/new-note',isAuthenticated, async (req, res) => {
+router.post('/notes/new-note', isAuthenticated, async (req, res) => {
     const {
         title,
         description
@@ -36,6 +38,7 @@ router.post('/notes/new-note',isAuthenticated, async (req, res) => {
             title,
             description
         });
+        newNote.user=req.user.id;
         await newNote.save();
         req.flash('success_msg', 'Nota Agregada Exitosamente!');
         res.redirect('/notes');
@@ -45,7 +48,7 @@ router.post('/notes/new-note',isAuthenticated, async (req, res) => {
 
 //LEER------------------------------------------------------
 router.get('/notes', isAuthenticated, async (req, res) => {
-    await Note.find().sort({
+    await Note.find({user:req.user.id}).sort({
             date: 'desc'
         })
         .then(documentos => {

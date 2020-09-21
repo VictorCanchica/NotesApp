@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const sesion = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const moongose=require('mongoose');
 
 //Inicializaciones-----------------------------------
 const app = express();
@@ -43,8 +44,10 @@ app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.errors_msg = req.flash('error_message');
     res.locals.error = req.flash('error');
+    res.locals.user= req.user||null;
     next();
 })
+
 
 //Routes-----------------------------------------------
 app.use(require('./routes/index'));

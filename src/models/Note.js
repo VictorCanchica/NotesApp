@@ -15,6 +15,9 @@ const NoteSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    user: {
+        type:String
     }
 });
 module.exports = mongoose.model('Note', NoteSchema);
