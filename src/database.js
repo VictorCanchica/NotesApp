@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect('mongodb://localhost/notes-db-app', {
+mongoose.connect('mongodb+srv://Vthor:VthorDev@notesappvthordev.rdswc.mongodb.net/NotesAppVthorDev?retryWrites=true&w=majority', {
         useCreateIndex: true,
         useNewUrlParser: true,
         useUnifiedTopology: true
