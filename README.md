@@ -12,8 +12,9 @@ Aplicacion para manejo de notas en la que puedes
 
 # Tecnologias Utilizadas
 * [Nodejs](https://nodejs.org/es/)
-- * [Express](https://expressjs.com/es/)
-- * [HandleBars](https://handlebarsjs.com/)
+* [Express](https://expressjs.com/es/)
+* [HandleBars](https://handlebarsjs.com/)
 * [Mongodb](https://www.mongodb.com/es)
+* [Bootswatch](https://bootswatch.com/)
 
 
